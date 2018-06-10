@@ -1,5 +1,4 @@
 # Functions for creating site frequency spectra from a VCF file.
-# Modified from "vcf2fs.r".
 # By Shenglin Liu, Apr 13, 2016.
 
 
