@@ -8,4 +8,4 @@ The main transformation function is vcf2dadi(), and its output is in dadi format
 See "readme.r"
 
 # Citation
-Liu S, Ferchaud AL, Groenkjaer P, Nygaard R, Hansen MM (2017) Genomic parallelism and lack thereof: Determinants inferred from contrasting systems of three-spine sticklebacks. Submitted.
+Liu S, Ferchaud AL, Groenkjaer P, Nygaard R, Hansen MM (2018) Genomic parallelism and lack thereof in contrasting systems of three-spine sticklebacks. Molecular Ecology, Vol. 27 (in press).
