@@ -13,6 +13,7 @@ I provide an example VCF file and an example popmap file. The dataset includes 1
 To create the SFS of Population 1, you simply need to run:
 
   source("vcf2sfs.r")
+  
   vcf2dadi("example.vcf","example_popmap.txt","pop1.fs",1)
 
 To create the joint SFS between Populations 1 and 2:
@@ -22,7 +23,9 @@ To create the joint SFS between Populations 1 and 2:
 To create the joint SFSs for all possible pairs or populations:
 
   popPairs<-combn(1:11,2)
+  
   for(i in 1:ncol(popPairs))
+  
   vcf2dadi("example.vcf","example_popmap.txt",sprintf("pop%d_pop%d.fs",popPairs[1,i],popPairs[2,i]),popPairs[,i])
 
 # Citation
