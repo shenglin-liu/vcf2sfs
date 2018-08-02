@@ -4,6 +4,9 @@ R functions for calculating site frequency spectrum (SFS) or joint SFS of more t
 # Input and output formats
 The main transformation function is vcf2dadi(). It requires two input files. One is the VCF file, and the other is a so-called popmap file. The popmap file is a tab-delimited two-column text file. Its first column specifies the IDs of the individuals included in the VCF file (the individuals should be arranged in the same order as in the VCF file; the IDs do not need to be the same as those in the header line of the VCF file). The second column specifies the populaton ID of each individual (coded in integers). The output of vcf2dadi() is in dadi format. But there are extra functions to transform dadi format into fastSimCoal format.
 
+# Note!
+The function vcf2dadi() parses the GT fields of the sample columns. Therefore, in order for this function to work, the VCF file must contain the GT fields and they must be placed at the beginning of each sample column. This can be verified by looking at the 9th column (the FORMAT column) of the VCF file. Some VCF files generated using GATK do not have the GT fields, hence unable to make use of this function. Future update of this function is expected to overcome this limitation.
+
 # Instructions
 For more detailed instructions, please see "readme.r"
 
