@@ -10,21 +10,26 @@ Major improvement of this version is the introduction of two types of simple obj
 Descriptions for each function can be found in the script file. Here I present a quick view of how to use it.
 
 # Input files
-Two input files are required. One is the VCF file, and the other is a so-called popmap file. The popmap file is a tab-delimited two-column text file. I inherited this file type from Stacks. Its first column specifies the IDs of the individuals included in the VCF file. The individuals should be arranged in the same order as in the VCF file, and the IDs do not need to be the same as those in the header line of the VCF file. The second column specifies the populaton ID of each individual and can be either integers or characters.
+Two input files are required. One is the VCF file, and the other is a so-called popmap file. The popmap file is a tab-delimited two-column text file. I inherited this file type from Stacks by Julian Catchen. Its first column specifies the IDs of the individuals included in the VCF file. The individuals should be arranged in the same order as in the VCF file, and the IDs do not need to be the same as those in the header line of the VCF file. The second column specifies the populaton ID of each individual and can be either integers or characters.
 
 I provide an example VCF file and an example popmap file. The dataset includes 2265 SNPs from 197 individuals belonging to 11 populations.
 
-# Read in the VCF file and the popmap file and create a gt object
+# Read the VCF file and the popmap file and create a gt object
 > mygt<-vcf2gt("example.vcf", "example_popmap.txt")
 
 NOTE: This function requires that the FORMAT column of the VCF file start with GT tag. All the SNPs should be biallelic and use "0", "1" and "." to represent reference allele, alternative allele and missing. Some VCF files generated using GATK do not start with GT tag in the FORMAT column, hence unable to make use of this function. However, a gt object is a simple list of two elements. You can view the structure of this object by running "str(mygt)". Therefore, even with an incompatible VCF file, if you can manage to parse the file to get the genotype information, you can still manage to create a gt object by yourself.
 
 # Functions for manipulating the gt object
 choose.pops: Subset the gt object by populations.
+
 samSize: Calculate sample sizes of the populations.
+
 minSamSize: Calculate minimum sample sizes of the populations accounting for the missing values.
+
 viewMissing: View the distribution of the missing values to help decide whether some individuals or SNPs should be filtered out.
+
 filter.gt: Filter the gt object for the missing values.
+
 gt2snp: Transform the gt object to a headered data.frame of dadi SNP data format.
 
 # Generate a SFS (a sfs object)
@@ -39,13 +44,21 @@ This function works well when the number of missing genotypes is low in the gt o
 
 # Functions for manipulating the sfs object
 fold.sfs: Fold the SFS.
+
 sample.sfs: Resampling from the SFS for the purpose of bootstrapping.
+
 plot.sfs: Plot the SFS (barplot for 1D, image for 2D)
+
 write.sfs.dadi: Output a SFS in dadi format.
+
 read.sfs.dadi: Read a SFS file in dadi format.
+
 write.1D.fsc: Write a 1D-SFS to a file in fastSimCoal format.
+
 write.2D.fsc: Write a 2D-SFS to a file in fastSimCoal format.
+
 read.1D.fsc: Read a 1D-SFS from a fastSimCoal format file.
+
 read.2D.fsc: Read a 2D-SFS from a fastSimCoal format file.
 
 # Citation
